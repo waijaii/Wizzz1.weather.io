@@ -1,4 +1,3 @@
-/* style.css */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 800px;
@@ -11,6 +10,7 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  position: relative;
 }
 
 #cityInput {
@@ -91,4 +91,70 @@ button:hover {
   font-size: 20px;
   color: #4a5568;
   text-transform: capitalize;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  background: white;
+  width: 70%; /* Match input width */
+  max-height: 150px; /* Reduced height */
+  overflow-y: auto;
+  z-index: 99;
+  margin-top: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px; /* Smaller font */
+  flex: 1;
+}
+
+.autocomplete-item {
+  padding: 8px 12px; /* Reduced padding */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* Scrollbar styling */
+.autocomplete-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.autocomplete-items::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.autocomplete-items::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.autocomplete-items::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.loading {
+  display: none;
+  position: absolute;
+  right: 70px;
+  top: 14px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
